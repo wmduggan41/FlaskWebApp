@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Scoring System</title>
+</head>
+<body>
+    <h1>Custom Scoring System</h1>
+    <form action="/submit_scores" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    {% for activity in activities %}
+                    <th>{{ activity }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(1, 13) %}
+                <tr>
+                    <td>Player {{ i }}</td>
+                    {% for activity in activities %}
+                    <td>
+                        <input type="number" name="{{ activity }}_Day 1_Player {{ i }}" min="0" max="100">
+                        <input type="number" name="{{ activity }}_Day 2_Player {{ i }}" min="0" max="100">
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+
+{% endblock %}

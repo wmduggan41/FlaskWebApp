@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Scoring System - Leaderboard</title>
+</head>
+<body>
+    <h1>Custom Scoring System - Leaderboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Total Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rank, player in sorted_players %}
+            <tr>
+                <td>{{ rank }}</td>
+                <td>{{ player[0] }}</td>
+                <td>{{ player[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+
+{% endblock %}
